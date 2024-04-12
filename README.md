@@ -33,7 +33,4 @@ While not a major deal, I felt like the docs were hard to navigate for type ORM
 ## NestJS
 
 1. Validation with Dtos is pretty nice.
-
    - Define the dtos once, enable pipeValidation and instantly get informative 400 errors
-
-2. For me
