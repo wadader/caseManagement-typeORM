@@ -1,5 +1,5 @@
 import { IsIn, IsInt, IsString } from 'class-validator';
-import { CASE_CATEGORIES, CaseCategoryType } from '../case.types';
+import { CASE_CATEGORIES, CaseCategoryType } from '../entity/case.types';
 
 export class CreateCaseDto {
   @IsIn(CASE_CATEGORIES)

@@ -4,7 +4,7 @@ import {
   CreateCaseDto,
   CreateJudgeDto,
   CreateLawyerDto,
-} from './entity/Dtos/createDto';
+} from './Dtos/createDto';
 
 @Controller('cases')
 export class CasesController {
