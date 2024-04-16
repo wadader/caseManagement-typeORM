@@ -10,26 +10,52 @@ import {
 import { CasesService } from './cases.service';
 import { CasesController } from './cases.controller';
 import { TypeOrmCasesService } from './providers/cases_typeorm_provider';
-
-const typeOrmImport = TypeOrmModule.forFeature([
-  Case,
-  CaseCategory,
-  CaseResult,
-  Lawyer,
-  Judge,
-]);
+import { DrizzlePGModule } from '@knaadh/nestjs-drizzle-pg';
+import * as drizzleSchema from './entity/cases_drizzleorm.schema';
+import { DrizzleOrmCasesService } from './providers/cases_drizzleorm_provider';
 
 const casesProvider: SelectedProviders = {
   typeOrm: {
-    importedModules: typeOrmImport,
+    importedModules: TypeOrmModule.forFeature([
+      Case,
+      CaseCategory,
+      CaseResult,
+      Lawyer,
+      Judge,
+    ]),
     serviceProvider: TypeOrmCasesService,
+    db: TypeOrmModule.forRootAsync({
+      useFactory: () => ({
+        type: 'postgres',
+        url: process.env.POSTGRES_URL,
+        synchronize: true,
+        autoLoadEntities: true,
+      }),
+    }),
+  },
+  drizzleOrm: {
+    db: DrizzlePGModule.registerAsync({
+      tag: 'DB_DEV',
+      useFactory() {
+        return {
+          pg: {
+            connection: 'client',
+            config: { connectionString: process.env.POSTGRES_URL },
+          },
+          config: { schema: drizzleSchema },
+        };
+      },
+    }),
+    serviceProvider: DrizzleOrmCasesService,
   },
 } as const;
 
-export const selectedProvider = casesProvider.typeOrm;
+export const selectedProvider = casesProvider.drizzleOrm;
 
 @Module({
-  imports: [selectedProvider.importedModules],
+  ...(selectedProvider.importedModules && {
+    imports: [selectedProvider.importedModules],
+  }),
   providers: [
     { provide: CasesService, useClass: selectedProvider.serviceProvider },
   ],
@@ -39,9 +65,11 @@ export class CasesModule {}
 
 interface SelectedProviders {
   typeOrm: SelectedProvider;
+  drizzleOrm: SelectedProvider;
 }
 
 interface SelectedProvider {
   serviceProvider: Type<CasesService>;
-  importedModules: DynamicModule;
+  importedModules?: DynamicModule;
+  db: DynamicModule;
 }
