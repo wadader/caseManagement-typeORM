@@ -669,6 +669,20 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
+"@knaadh/nestjs-drizzle-pg@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@knaadh/nestjs-drizzle-pg/-/nestjs-drizzle-pg-1.0.0.tgz#2565103bc59220b530c0ef572ae2217c3a18b81a"
+  integrity sha512-21Ywzn/5y0QQz3cx1Nc2ZKfzW7LAjWCjATymkT148YECc+BIwpwvWvpejnjPOjFcyM0XfNT2axvRb0913GVfWg==
+  dependencies:
+    tslib "^2.3.0"
+
+"@knaadh/nestjs-drizzle-postgres@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@knaadh/nestjs-drizzle-postgres/-/nestjs-drizzle-postgres-1.0.0.tgz#5612e028bbf5b702aebd5ec690acf6816abbc939"
+  integrity sha512-r3elSMh+M3ndJw1EJqYJWK0tqPo0zz+AURkLr/OoOws3wWKTyT0GQsKZTBpPytdZnbHqXPHh5ExsPNEc7eJ8Pw==
+  dependencies:
+    tslib "^2.3.0"
+
 "@ljharb/through@^2.3.11":
   version "2.3.13"
   resolved "https://registry.yarnpkg.com/@ljharb/through/-/through-2.3.13.tgz#b7e4766e0b65aa82e529be945ab078de79874edc"
@@ -2120,6 +2134,11 @@ dotenv@16.4.5, dotenv@^16.0.3:
   version "16.4.5"
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-16.4.5.tgz#cdd3b3b604cb327e286b4762e13502f717cb099f"
   integrity sha512-ZmdL2rui+eB2YwhsWzjInR8LldtZHGDoQ1ugH85ppHKwpUHL7j7rN0Ti9NCnGiQbhaZ11FpR+7ao1dNsmduNUg==
+
+drizzle-orm@^0.30.8:
+  version "0.30.8"
+  resolved "https://registry.yarnpkg.com/drizzle-orm/-/drizzle-orm-0.30.8.tgz#bf74a958b74d8c5fe55ce8d7f901dd2870c4e7c7"
+  integrity sha512-9pBJA0IjnpPpzZ6s9jlS1CQAbKoBmbn2GJesPhXaVblAA/joOJ4AWWevYcqvLGj9SvThBAl7WscN8Zwgg5mnTw==
 
 eastasianwidth@^0.2.0:
   version "0.2.0"
@@ -4929,7 +4948,7 @@ tsconfig-paths@4.2.0, tsconfig-paths@^4.1.2, tsconfig-paths@^4.2.0:
     minimist "^1.2.6"
     strip-bom "^3.0.0"
 
-tslib@2.6.2, tslib@^2.1.0, tslib@^2.5.0, tslib@^2.6.2:
+tslib@2.6.2, tslib@^2.1.0, tslib@^2.3.0, tslib@^2.5.0, tslib@^2.6.2:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.6.2.tgz#703ac29425e7b37cd6fd456e92404d46d1f3e4ae"
   integrity sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==
